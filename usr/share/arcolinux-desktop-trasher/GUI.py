@@ -59,7 +59,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     #                          INSTALL DESKTOP BOX 7 + 8
     # ======================================================================
 
-    lbl7 = Gtk.Label(label="Remove any possible desktop: ")
+    lbl7 = Gtk.Label(label="Option 2 :Remove any possible desktop \n (using the ArcoLinux list) ")
 
     self.desktopr = Gtk.ComboBoxText()
     self.desktopr.set_size_request(200, 0)
@@ -83,11 +83,12 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     #                          DESKTOPS INSTALLED BOX 9
     # ======================================================================
 
-    lbl9 = Gtk.Label(label="Remove the installed desktop : ")
+    lbl9 = Gtk.Label(label="Option 1 : remove the installed desktop \n (/usr/share/xsessions) ")
     lbl9.set_margin_top(30)
     hbox9.pack_start(lbl9, False, False, 0)
     #hbox7.pack_end(self.desktopr, False, False, 0)
     self.installed_sessions = Gtk.ComboBoxText()
+    self.installed_sessions.set_size_request(200, 0)    
     fn.pop_box(self, self.installed_sessions)
     self.installed_sessions.set_active(0)
     self.installed_sessions.set_margin_top(30)

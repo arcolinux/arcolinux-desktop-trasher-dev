@@ -2,6 +2,7 @@
 # =                  Author: Brad Heffernan & Erik Dubois         =
 # =================================================================
 import os
+import traceback
 from gi.repository import Gtk, Gdk, GdkPixbuf, Pango, GLib
 import sys
 import gi
@@ -472,30 +473,53 @@ def make_backups():
     if not os.path.exists(source):
         os.mkdir(source)
         permissions(destination)    
-    copy_tree(source,destination,preserve_symlinks=True)
+    
+    try:
+        copy_tree(source,destination,preserve_symlinks=False)
+    except Exception:
+        print(traceback.format_exc())
+        print("Error occurred in making a backup of ~/.config. Process ended with success.")
+        
     permissions(destination)
 
-    #print("Making backup of .local to -trasher-")
-    #source=home + "/.local/"
-    #destination=home + "/.local-trasher-" + time
-    #if not os.path.exists(source):
-    #    os.mkdir(source)
-    #    permissions(source) 
-    #copy_tree(source,destination)
-    #permissions(destination)
+    print("Making backup of .local to -trasher-")
+    source=home + "/.local/"
+    destination=home + "/.local-trasher-" + time
+    if not os.path.exists(source):
+        os.mkdir(source)
+        permissions(source) 
+    try:
+        copy_tree(source,destination,preserve_symlinks=False)
+    except Exception:
+        print(traceback.format_exc())
+        print("Error occurred in making a copy of ~/.local. Process ended with success.")
+    
+    permissions(destination)
 
 def remove_content_folders():
-    print("removing .config")
-    subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
-    print("NOT removing .local")
-    #subprocess.Popen(["rm", "-rf", home + "/.local/share/"], shell=False, stderr=None)
+    print("removing .config and .local")
+    try:
+        subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
+    except Exception:
+        print(traceback.format_exc())
+        print("Error occurred in removing ~/.config. Process ended with success.")
+    try:
+        subprocess.Popen(["rm", "-rf", home + "/.local/share/"], shell=False, stderr=None)
+    except Exception:
+        print(traceback.format_exc())
+        print("Error occurred in removing ~/.local/share/. Process ended with success.")
+
 
 def copy_skel():
     print("copying skel to home dir")
     _path_created.clear()
     source="/etc/skel/"
     destination=home + "/"
-    copy_tree(source,destination)
+    try:
+        copy_tree(source,destination,preserve_symlinks=False)
+    except Exception:
+        print(traceback.format_exc())
+        print("Error occurred in copying files from /etc/skel to your ~. Process ended with success.")
     permissions(destination)
 
 def shutdown():
