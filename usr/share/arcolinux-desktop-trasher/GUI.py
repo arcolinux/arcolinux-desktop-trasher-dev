@@ -4,12 +4,33 @@
 
 def GUI(self, Gtk, GdkPixbuf, fn):
 
+    self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
+    self.add(self.vbox)    
+    
+    # =======================================================
+    #                       App Notifications
+    # =======================================================
+    hbox0 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+
+    self.notification_revealer = Gtk.Revealer()
+    self.notification_revealer.set_reveal_child(False)
+
+    self.notification_label = Gtk.Label()
+
+    pb_panel = GdkPixbuf.Pixbuf().new_from_file(fn.base_dir + '/images/panel.png')
+    panel = Gtk.Image().new_from_pixbuf(pb_panel)
+
+    overlayFrame = Gtk.Overlay()
+    overlayFrame.add(panel)
+    overlayFrame.add_overlay(self.notification_label)
+
+    self.notification_revealer.add(overlayFrame)
+
+    hbox0.pack_start(self.notification_revealer, True, False, 0)
+
     # ======================================================================
     #                   CONTAINERS
     # ======================================================================
-
-    self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
-    self.add(self.vbox)
 
     hbox1 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox2 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
@@ -118,6 +139,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     #                   PACK TO WINDOW
     # ======================================================================
 
+    self.vbox.pack_start(hbox0, False, False, 20)  # revealer
     self.vbox.pack_start(hbox4, False, False, 20)  # LOGO
     self.vbox.pack_start(hbox3, False, False, 20)  # warning text
     self.vbox.pack_start(hbox12, False, False, 7)  # Buttons
