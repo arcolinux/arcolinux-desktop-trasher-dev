@@ -98,6 +98,14 @@ def pop_box(self, combo):
             if not coms[i] in excludes:
                 combo.append_text(coms[i])
 
+def pop_box_all(self, combo):
+    combo.get_model().clear()
+    combo.set_wrap_width(0)
+
+    for i in range(len(desktop)):
+        combo.append_text(desktop[i])
+
+
 # =====================================================
 #               CHECK DESKTOP - XSESSIONS
 # =====================================================

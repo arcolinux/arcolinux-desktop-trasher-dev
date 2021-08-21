@@ -43,6 +43,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     hbox10 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox11 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox12 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox13 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
 
     #vbox2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
 
@@ -54,22 +55,42 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     img = Gtk.Image().new_from_pixbuf(img_pb)
     hbox4.pack_start(img, True, False, 0)
 
+    # ======================================================================
+    #                          DESKTOPS INSTALLED BOX 9
+    # ======================================================================
+
+    lbl9 = Gtk.Label(label="Option 1 : remove the installed desktop \n (/usr/share/xsessions) ")
+    lbl9.set_margin_top(30)
+    hbox9.pack_start(lbl9, False, False, 0)
+    
+    self.installed_sessions = Gtk.ComboBoxText()
+    self.installed_sessions.set_size_request(200, 0)
+       
+    fn.pop_box(self, self.installed_sessions)
+    self.installed_sessions.set_active(0)
+    
+    hbox9.pack_end(self.installed_sessions, False, False, 0)
+    
+    btnRemoveInstalledDesktop = Gtk.Button(label="Trash the desktop")
+    btnRemoveInstalledDesktop.set_size_request(220, 0)
+    btnRemoveInstalledDesktop.connect('clicked', self.on_remove_clicked_installed)
+   
+    hbox10.pack_end(btnRemoveInstalledDesktop, True, False, 0)
 
     # ======================================================================
     #                          INSTALL DESKTOP BOX 7 + 8
     # ======================================================================
 
     lbl7 = Gtk.Label(label="Option 2 :Remove any possible desktop \n (using the ArcoLinux list) ")
-
+    lbl9.set_margin_top(0)
+    hbox7.pack_start(lbl7, False, False, 0)
+    
     self.desktopr = Gtk.ComboBoxText()
     self.desktopr.set_size_request(200, 0)
 
-    for i in range(len(fn.desktop)):
-        self.desktopr.append_text(fn.desktop[i])
-    #active desktop
+    fn.pop_box_all(self, self.desktopr)
     self.desktopr.set_active(0)
 
-    hbox7.pack_start(lbl7, False, False, 0)
     hbox7.pack_end(self.desktopr, False, False, 0)
 
     btnRemoveDesktop = Gtk.Button(label="Trash the desktop")
@@ -78,28 +99,6 @@ def GUI(self, Gtk, GdkPixbuf, fn):
    
     hbox8.pack_end(btnRemoveDesktop, True, False, 0)
 
-
-    # ======================================================================
-    #                          DESKTOPS INSTALLED BOX 9
-    # ======================================================================
-
-    lbl9 = Gtk.Label(label="Option 1 : remove the installed desktop \n (/usr/share/xsessions) ")
-    lbl9.set_margin_top(30)
-    hbox9.pack_start(lbl9, False, False, 0)
-    #hbox7.pack_end(self.desktopr, False, False, 0)
-    self.installed_sessions = Gtk.ComboBoxText()
-    self.installed_sessions.set_size_request(200, 0)    
-    fn.pop_box(self, self.installed_sessions)
-    self.installed_sessions.set_active(0)
-    self.installed_sessions.set_margin_top(30)
-    hbox9.pack_end(self.installed_sessions, False, False, 0)
-    
-    btnRemoveInstalledDesktop = Gtk.Button(label="Trash the desktop")
-    btnRemoveInstalledDesktop.set_size_request(220, 0)
-    btnRemoveInstalledDesktop.connect('clicked', self.on_remove_clicked_installed)
-   
-    hbox10.pack_end(btnRemoveInstalledDesktop, True, False, 0)
-    
     # ======================================================================
     #                       BUTTONS - BOX 2
     # ======================================================================
@@ -117,9 +116,18 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     # ======================================================================
     btnRefresh = Gtk.Button(label="Refresh current desktops")
     btnRefresh.connect('clicked', self.on_refresh_clicked)
+    btnRefresh.set_margin_top(10)
+    btnRefresh.set_margin_bottom(20)
 
     hbox12.pack_end(btnRefresh, True, False, 0)
 
+    # ======================================================================
+    #                       PROCEDURE
+    # ======================================================================
+ 
+    lbl13 = Gtk.Label(label="First use option 1 to remove - use option 2 for left-over packages ")
+    lbl13.set_margin_top(10)
+    hbox13.pack_start(lbl13, True, False, 0)
  
  
     # ======================================================================
@@ -141,8 +149,9 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     # ======================================================================
 
     self.vbox.pack_start(hbox0, False, False, 20)  # revealer
-    self.vbox.pack_start(hbox4, False, False, 20)  # LOGO
+    self.vbox.pack_start(hbox4, False, False, 20)  # Logo
     self.vbox.pack_start(hbox3, False, False, 20)  # warning text
+    self.vbox.pack_start(hbox13, False, False, 5)  # Procedure
     self.vbox.pack_start(hbox12, False, False, 7)  # Buttons
     self.vbox.pack_start(hbox9, False, False, 5)  # Desktops installed
     self.vbox.pack_start(hbox10, True, False, 5)  # Remove installed desktops
