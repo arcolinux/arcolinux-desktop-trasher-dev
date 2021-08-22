@@ -314,10 +314,9 @@ openbox = [
     "lxrandr",
     "nitrogen",
     "obconf",
-    "obkey",
+    "obkey-git",
     "obmenu-generator",
     "obmenu3",
-    "openbox",
     "openbox-arc-git",
     "openbox-themes-pambudi-git",
     "perl-linux-desktopfiles",
@@ -325,6 +324,7 @@ openbox = [
     "tint2",
     "volumeicon",
     "xcape",
+    "openbox",
 ]
 plasma = [
     "arcolinux-config-plasma-git",
