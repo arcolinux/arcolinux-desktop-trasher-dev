@@ -24,13 +24,12 @@ sudo_username = os.getlogin()
 home = "/home/" + str(sudo_username)
 message = "This tool is provided without any guarantees - use with care - functionality of other desktops may be compromised - make backups"
 
-log_dir="/var/log/arcolinux/"
-adt_log_dir="/var/log/arcolinux/adt/"
-
-
 # =====================================================
 #               Create log file
 # =====================================================
+
+log_dir="/var/log/arcolinux/"
+adt_log_dir="/var/log/arcolinux/adt/"
 
 def create_log(self):
     print('Making log in /var/log/arcolinux')
