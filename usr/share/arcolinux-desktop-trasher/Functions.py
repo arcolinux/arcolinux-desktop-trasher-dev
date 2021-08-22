@@ -219,7 +219,13 @@ awesome = [
 ]
 bspwm = [
     "arcolinux-bspwm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",    
     "bspwm",
+    "picom",
+    "rofi",
+    "volumeicon",    
 ]
 budgie = [
     "arcolinux-budgie-dconf-git",
