@@ -271,7 +271,6 @@ dwm = [
     "arcolinux-rofi-git",
     "arcolinux-rofi-themes-git",
     "arcolinux-volumeicon-git",
-    "autorandr",
     "gsimplecal",
     "picom",
     "rofi",
@@ -301,13 +300,28 @@ gnome = [
 ]
 hlwm = [
     "arcolinux-herbstluftwm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",    
     "herbstluftwm",
+    "picom",
+    "rofi",
+    "sxhkd",
+    "volumeicon",    
     "sxhkd",
 ]
 i3 = [
     "arcolinux-i3wm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",    
+    "autotiling",
     "i3-gaps",
     "i3status",
+    "picom",
+    "rofi",
+    "sxhkd",
+    "volumeicon",
 ]
 icewm = [
     "arcolinux-icewm-git",
