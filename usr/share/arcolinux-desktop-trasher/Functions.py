@@ -225,6 +225,7 @@ bspwm = [
     "bspwm",
     "picom",
     "rofi",
+    "sxhkd",
     "volumeicon",    
 ]
 budgie = [
@@ -253,6 +254,7 @@ cwm = [
     "cwm",
     "autorandr",         
     "picom",
+    "sxhkd",
     "volumeicon",    
 ]
 deepin = [
@@ -266,6 +268,15 @@ deepin = [
 dwm = [
     "arcolinux-dwm-git",
     "arcolinux-dwm-slstatus-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
+    "autorandr",
+    "gsimplecal",
+    "picom",
+    "rofi",
+    "sxhkd",    
+    "volumeicon",    
 ]
 fvwm3 = [
     "arcolinux-fvwm3-git",
@@ -277,6 +288,7 @@ fvwm3 = [
     "lxappearance",
     "picom",
     "rofi",
+    "sxhkd",
     "volumeicon",
     "fvwm3-git",
 ]
@@ -290,6 +302,7 @@ gnome = [
 hlwm = [
     "arcolinux-herbstluftwm-git",
     "herbstluftwm",
+    "sxhkd",
 ]
 i3 = [
     "arcolinux-i3wm-git",
@@ -317,6 +330,7 @@ jwm = [
     "jwm",
     "picom",
     "rofi",
+    "sxhkd",
     "volumeicon",
     "xdgmenumaker",
 ]
@@ -414,7 +428,15 @@ qtile = [
 ]
 spectrwm = [
     "arcolinux-spectrwm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
     "spectrwm",
+    "autorandr",        
+    "picom",
+    "rofi",
+    "sxhkd",
+    "volumeicon",    
 ]
 ukui = [
     "arcolinux-ukui-dconf-git",
