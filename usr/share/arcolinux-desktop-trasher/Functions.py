@@ -242,6 +242,10 @@ cinnamon = [
     "cinnamon-translations",
     "mintlocale",
     "nemo-fileroller",
+    "iso-flag-png",
+    "gnome-screenshot",
+    "gnome-system-monitor",
+    "gnome-terminal",        
 ]
 cwm = [
     "arcolinux-cwm-git",
