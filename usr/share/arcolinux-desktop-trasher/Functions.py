@@ -275,7 +275,15 @@ i3 = [
 ]
 icewm = [
     "arcolinux-icewm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
+    "autorandr",         
     "icewm",
+    "picom",
+    "rofi",
+    "volumeicon",
+    "xdgmenumaker",
  ]
 jwm = [
     "arcolinux-jwm-git",
