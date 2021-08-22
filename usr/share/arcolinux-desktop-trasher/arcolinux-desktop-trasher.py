@@ -3,13 +3,12 @@
 # =                  Author: Brad Heffernan & Erik Dubois         =
 # =================================================================
 
-import gi
+import gi,os
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, GdkPixbuf, Pango, GLib  # noqa
 import GUI
 import Functions as fn
-import subprocess
-
+#import subprocess
 
 class Main(Gtk.Window):
     def __init__(self):
@@ -24,6 +23,18 @@ class Main(Gtk.Window):
         #self.set_position(Gtk.WindowPosition.CENTER)
 
         GUI.GUI(self, Gtk, GdkPixbuf, fn)
+        
+        if not os.path.isdir(fn.log_dir):
+            try:
+                os.mkdir(fn.log_dir)
+            except Exception as e:
+                print(e)
+        
+        if not os.path.isdir(fn.adt_log_dir):
+            try:
+                os.mkdir(fn.adt_log_dir)
+            except Exception as e:
+                print(e)
 
     def on_close_clicked(self, widget):
         Gtk.main_quit()
@@ -31,22 +42,27 @@ class Main(Gtk.Window):
     def on_refresh_clicked(self, desktop):
         fn.restart_program()
 
-    def on_remove_clicked(self, desktop):
-        print("removing {}".format(self.desktopr.get_active_text()))
-        fn.make_backups()
-        fn.remove_desktop(self,self.desktopr.get_active_text())
-        fn.remove_content_folders()
-        fn.copy_skel()
-        GLib.idle_add(fn.show_in_app_notification, self, "Desktop removed option 2")
-    
     def on_remove_clicked_installed(self, desktop):
         print("removing {}".format(self.installed_sessions.get_active_text()))
+        fn.create_log(self)
         fn.make_backups()
         fn.remove_desktop(self,self.installed_sessions.get_active_text())
         fn.remove_content_folders()
         fn.copy_skel()
+        fn.create_log(self)
         GLib.idle_add(fn.show_in_app_notification, self, "Desktop removed option 1")
-    
+
+
+    def on_remove_clicked(self, desktop):
+        print("removing {}".format(self.desktopr.get_active_text()))
+        fn.create_log(self)
+        fn.make_backups()
+        fn.remove_desktop(self,self.desktopr.get_active_text())
+        fn.remove_content_folders()
+        fn.copy_skel()
+        fn.create_log(self)
+        GLib.idle_add(fn.show_in_app_notification, self, "Desktop removed option 2")
+
     def on_reboot_clicked(self, desktop):
         print("Closing down")
         fn.shutdown()

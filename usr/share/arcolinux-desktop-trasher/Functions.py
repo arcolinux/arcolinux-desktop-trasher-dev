@@ -10,6 +10,7 @@ import threading  # noqa
 import subprocess
 import shutil
 import datetime
+from subprocess import PIPE, STDOUT
 from pathlib import Path
 from distutils.dir_util import copy_tree
 from distutils.dir_util import _path_created
@@ -22,6 +23,26 @@ users = proc.stdout.readlines()[0].decode().strip().split(" ")[0]
 sudo_username = os.getlogin()
 home = "/home/" + str(sudo_username)
 message = "This tool is provided without any guarantees - use with care - functionality of other desktops may be compromised - make backups"
+
+log_dir="/var/log/arcolinux/"
+adt_log_dir="/var/log/arcolinux/adt/"
+
+
+# =====================================================
+#               Create log file
+# =====================================================
+
+def create_log(self):
+    print('Making log in /var/log/arcolinux')
+    now = datetime.datetime.now()
+    time = now.strftime("%Y-%m-%d-%H-%M-%S" )
+    destination = adt_log_dir + 'adt-log-' + time
+    command = 'sudo pacman -Q > ' + destination
+    subprocess.call(command,
+                    shell=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.STDOUT)     
+    GLib.idle_add(show_in_app_notification, self, "Log file created")
 
 # =====================================================
 #               Check if File Exists
@@ -513,7 +534,8 @@ def make_backups():
     permissions(destination)
 
 def remove_content_folders():
-    print("removing .config and .local")
+    #print("removing .config and .local")
+    print("removing .config")
     try:
         subprocess.Popen(["rm", "-rf", home + "/.config/"], shell=False, stderr=None)
     except Exception:
