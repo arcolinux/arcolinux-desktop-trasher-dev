@@ -307,8 +307,7 @@ hlwm = [
     "picom",
     "rofi",
     "sxhkd",
-    "volumeicon",    
-    "sxhkd",
+    "volumeicon",
 ]
 i3 = [
     "arcolinux-i3wm-git",
