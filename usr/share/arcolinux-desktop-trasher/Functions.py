@@ -186,8 +186,16 @@ desktop = [
 
 awesome = [
     "arcolinux-awesome-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
+    "autorandr",
     "awesome",
+    "lxappearance",
+    "picom",
+    "rofi",
     "vicious",
+    "volumeicon",
 ]
 bspwm = [
     "arcolinux-bspwm-git",
@@ -511,11 +519,11 @@ def remove_content_folders():
     except Exception:
         print(traceback.format_exc())
         print("Error occurred in removing ~/.config. Process ended with success.")
-    try:
-        subprocess.Popen(["rm", "-rf", home + "/.local/share/"], shell=False, stderr=None)
-    except Exception:
-        print(traceback.format_exc())
-        print("Error occurred in removing ~/.local/share/. Process ended with success.")
+    #try:
+    #    subprocess.Popen(["rm", "-rf", home + "/.local/share/"], shell=False, stderr=None)
+    #except Exception:
+    #    print(traceback.format_exc())
+    #    print("Error occurred in removing ~/.local/share/. Process ended with success.")
 
 
 def copy_skel():
