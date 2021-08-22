@@ -291,9 +291,9 @@ lxqt = [
 mate = [
     "arcolinux-mate-dconf-git",
     "arcolinux-mate-git",
+    "mate-tweak",
     "mate-extra",
     "mate",
-    "mate-tweak",
 ]
 openbox = [
     "arcolinux-common-git",
