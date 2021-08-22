@@ -249,7 +249,14 @@ cinnamon = [
 ]
 cwm = [
     "arcolinux-cwm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",    
     "cwm",
+    "autorandr",         
+    "picom",
+    "rofi",
+    "volumeicon",    
 ]
 deepin = [
     "arcolinux-deepin-dconf-git",
