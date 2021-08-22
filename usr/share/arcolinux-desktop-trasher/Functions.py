@@ -279,13 +279,20 @@ icewm = [
  ]
 jwm = [
     "arcolinux-jwm-git",
+    "arcolinux-rofi-git",
+    "arcolinux-rofi-themes-git",
+    "arcolinux-volumeicon-git",
+    "autorandr",        
     "jwm",
+    "picom",
+    "rofi",
+    "volumeicon",
+    "xdgmenumaker",
 ]
 lxqt = [
     "arcolinux-lxqt-git",
     "lxqt",
     "lxqt-arc-dark-theme-git",
-    "pavucontrol-qt",
     "xscreensaver",
 ]
 mate = [
@@ -395,6 +402,8 @@ xfce = [
 xmonad = [
     "arcolinux-xmonad-polybar-git",
     "haskell-dbus",
+    "perl-checkupdates-aur",
+    "perl-www-aur",
     "xmonad-contrib",
     "xmonad-log",
     "xmonad-utils",
