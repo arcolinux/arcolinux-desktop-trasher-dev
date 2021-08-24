@@ -225,8 +225,10 @@ bspwm = [
     "bspwm",
     "picom",
     "rofi",
+    "sutils-git",
     "sxhkd",
-    "volumeicon",    
+    "volumeicon",
+    "xtitle-git",
 ]
 budgie = [
     "arcolinux-budgie-dconf-git",
@@ -306,8 +308,10 @@ hlwm = [
     "herbstluftwm",
     "picom",
     "rofi",
+    "sutils-git",
     "sxhkd",
     "volumeicon",
+    "xtitle-git",
 ]
 i3 = [
     "arcolinux-i3wm-git",
@@ -448,15 +452,19 @@ spectrwm = [
     "autorandr",        
     "picom",
     "rofi",
+    "sutils-git",
     "sxhkd",
-    "volumeicon",    
+    "volumeicon",
+    "xtitle-git",
 ]
 ukui = [
     "arcolinux-ukui-dconf-git",
     "arcolinux-ukui-git",
     "ukui",
     "mate-extra",
-    "mate"
+    "mate",
+    "redshift",
+    "gnome-screenshot",
 ]
 xfce = [
     "xfce4-power-manager",
@@ -466,10 +474,12 @@ xfce = [
     "mugshot",
 ]
 xmonad = [
+    "arcolinux-volumeicon-git",
     "arcolinux-xmonad-polybar-git",
     "haskell-dbus",
     "perl-checkupdates-aur",
     "perl-www-aur",
+    "volumeicon",
     "xmonad-contrib",
     "xmonad-log",
     "xmonad-utils",
