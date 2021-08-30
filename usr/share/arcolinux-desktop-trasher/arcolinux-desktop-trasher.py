@@ -52,7 +52,7 @@ class Main(Gtk.Window):
             pass
         else:
             fn.remove_content_folders()
-        #fn.copy_skel()
+            fn.copy_skel()
         fn.create_log(self)
         GLib.idle_add(fn.show_in_app_notification, self, "Desktop removed option 1")
 
@@ -66,7 +66,7 @@ class Main(Gtk.Window):
             pass
         else:
             fn.remove_content_folders()
-        #fn.copy_skel()
+            fn.copy_skel()
         fn.create_log(self)
         GLib.idle_add(fn.show_in_app_notification, self, "Desktop removed option 2")
 
