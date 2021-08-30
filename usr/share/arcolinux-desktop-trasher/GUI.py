@@ -60,7 +60,7 @@ def GUI(self, Gtk, GdkPixbuf, fn):
     #                          DESKTOPS INSTALLED BOX 9
     # ======================================================================
 
-    self.lbl_donottouch = Gtk.Label(label="Do not remove the content of ~/.config\nAllow copy/paste from /etc/skel to home directory\nUser removes unwanted files and folders manually")
+    self.lbl_donottouch = Gtk.Label(label="Do not remove the current content of ~/.config\nUser will remove any unwanted files and folders manually")
     self.donottouch = Gtk.Switch()
     self.donottouch.set_active(True)
     hbox14.pack_start(self.lbl_donottouch, False, False, 0)
