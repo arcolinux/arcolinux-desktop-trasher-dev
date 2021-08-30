@@ -607,8 +607,8 @@ def remove_desktop(self,desktop):
     
 def make_backups():
     print("making backups of .config and .local")
-    if not os.path.exists(Functions.home + "/.config-adt"):
-        os.makedirs(Functions.home + "/.config-adt")
+    if not os.path.exists(home + "/.config-adt"):
+        os.makedirs(home + "/.config-adt")
     now = datetime.datetime.now()
     time = now.strftime("%Y-%m-%d-%H-%M-%S" )
     
