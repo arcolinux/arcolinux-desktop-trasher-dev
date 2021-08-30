@@ -607,12 +607,14 @@ def remove_desktop(self,desktop):
     
 def make_backups():
     print("making backups of .config and .local")
+    if not os.path.exists(fn.home + "/.config-adt"):
+        os.makedirs(fn.home + "/.config-adt")
     now = datetime.datetime.now()
     time = now.strftime("%Y-%m-%d-%H-%M-%S" )
     
-    print("Making backup of .config to -trasher-")
+    print("Making backup of .config to .config-adt")
     source=home + "/.config/"
-    destination=home + "/.config-trasher-" + time
+    destination=home + "/.config-adt/config-adt-" + time
     if not os.path.exists(source):
         os.mkdir(source)
         permissions(destination)    
@@ -625,9 +627,9 @@ def make_backups():
         
     permissions(destination)
 
-    print("Making backup of .local to -trasher-")
+    print("Making backup of .local to .config-adt")
     source=home + "/.local/"
-    destination=home + "/.local-trasher-" + time
+    destination=home + "/.config-adt/local-adt-" + time
     if not os.path.exists(source):
         os.mkdir(source)
         permissions(source) 
