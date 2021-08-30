@@ -184,6 +184,7 @@ desktop = [
     "bspwm",
     "budgie-desktop",
     "cinnamon",
+    "cutefish-xsession",
     "cwm",
     "deepin",
     "dwm",
@@ -249,6 +250,10 @@ cinnamon = [
     "gnome-screenshot",
     "gnome-system-monitor",
     "gnome-terminal",        
+]
+cutefish = [
+    "arcolinux-cutefish-git",
+    "cutefish",     
 ]
 cwm = [
     "arcolinux-cwm-git",
@@ -517,6 +522,9 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "cwm":
         commands = cwm
+        remove_critical_commands =[]
+    elif desktop == "cutefish-xsession":
+        commands = cutefish
         remove_critical_commands =[]
     elif desktop == "deepin":
         commands = deepin
