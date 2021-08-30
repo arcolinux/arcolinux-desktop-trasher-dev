@@ -133,7 +133,7 @@ def pop_box_all(self, combo):
 # def check_desktop(desktop):
     
 #     if os.path.exists("/usr/share/xsessions/"):
-#         lst = fn.os.listdir("/usr/share/xsessions/")
+#         lst = Functions.os.listdir("/usr/share/xsessions/")
 #         for x in lst:
 #             if desktop + ".desktop" == x:
 #                 return True
@@ -607,8 +607,8 @@ def remove_desktop(self,desktop):
     
 def make_backups():
     print("making backups of .config and .local")
-    if not os.path.exists(fn.home + "/.config-adt"):
-        os.makedirs(fn.home + "/.config-adt")
+    if not os.path.exists(Functions.home + "/.config-adt"):
+        os.makedirs(Functions.home + "/.config-adt")
     now = datetime.datetime.now()
     time = now.strftime("%Y-%m-%d-%H-%M-%S" )
     
