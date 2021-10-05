@@ -357,7 +357,7 @@ leftwm = [
     "arcolinux-leftwm-git",
     "arcolinux-rofi-git",
     "arcolinux-rofi-themes-git",
-    "arcolinux-volumeicon-git", 
+    "arcolinux-volumeicon-git",
     "leftwm-theme-git",
     "leftwm",
     "picom",
@@ -566,6 +566,9 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "jwm":
         commands = jwm
+        remove_critical_commands =[]
+    elif desktop == "leftwm":
+        commands = leftwm
         remove_critical_commands =[]
     elif desktop == "lxqt":
         commands = lxqt
