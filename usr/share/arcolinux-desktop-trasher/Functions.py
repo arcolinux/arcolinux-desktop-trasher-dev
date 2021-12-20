@@ -604,6 +604,9 @@ def remove_desktop(self,desktop):
     elif desktop == "ukui":
         commands = ukui
         remove_critical_commands =[]
+    elif desktop == "wmderland":
+        commands = wmderland
+        remove_critical_commands =[]        
     elif desktop == "xfce":
         commands = xfce
         remove_critical_commands =[]
