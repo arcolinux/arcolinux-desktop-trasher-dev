@@ -198,6 +198,7 @@ desktop = [
     "plasma",
     "qtile",
     "spectrwm",
+    "wmderland",
     "ukui",
     "xfce",
     "xmonad"
@@ -481,6 +482,10 @@ ukui = [
     "mate",
     "redshift",
     "gnome-screenshot",
+]
+wmderland = [
+    "arcolinux-wmderland-git",
+    "wmderland-git",
 ]
 xfce = [
     "xfce4-power-manager",
