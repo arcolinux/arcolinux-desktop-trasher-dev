@@ -201,6 +201,7 @@ desktop = [
     "qtile",
     "spectrwm",
     "wmderland",
+    "worm",
     "ukui",
     "xfce",
     "xmonad"
@@ -492,6 +493,10 @@ wmderland = [
     "arcolinux-wmderland-git",
     "wmderland-git",
 ]
+worm = [
+    "arcolinux-worm-git",
+    "worm-dev-git",
+]
 xfce = [
     "xfce4-power-manager",
     "xfce4-goodies",
@@ -617,6 +622,9 @@ def remove_desktop(self,desktop):
         remove_critical_commands =[]
     elif desktop == "wmderland":
         commands = wmderland
+        remove_critical_commands =[]
+    elif desktop == "worm":
+        commands = worm
         remove_critical_commands =[]
     elif desktop == "xfce":
         commands = xfce
