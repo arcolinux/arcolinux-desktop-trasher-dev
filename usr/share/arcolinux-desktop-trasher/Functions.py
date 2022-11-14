@@ -177,6 +177,7 @@ def permissions(dst):
 
 desktop = [
     "awesome",
+    "berry",
     "bspwm",
     "budgie-desktop",
     "cinnamon",
@@ -214,11 +215,16 @@ awesome = [
     "arcolinux-volumeicon-git",
     "autorandr",
     "awesome",
+    "dmenu",
     "lxappearance",
     "picom",
     "rofi",
     "vicious",
     "volumeicon",
+]
+berry = [
+    "arcolinux-berry-git",
+    "berry-dev-git",
 ]
 bspwm = [
     "arcolinux-bspwm-git",
@@ -529,6 +535,9 @@ def remove_desktop(self,desktop):
     remove_critical_commands.clear
     if desktop == "awesome":
         commands = awesome
+        remove_critical_commands =[]
+    elif desktop == "berry":
+        commands = berry
         remove_critical_commands =[]
     elif desktop == "bspwm":
         commands = bspwm
