@@ -181,6 +181,7 @@ desktop = [
     "bspwm",
     "budgie-desktop",
     "cinnamon",
+    "chadwm",
     "cutefish-xsession",
     "cwm",
     "deepin",
@@ -245,6 +246,9 @@ budgie = [
     "budgie-extras",
     "budgie-desktop",
     "guake",
+]
+chadwm = [
+    "arcolinux-chadwm-git",
 ]
 cinnamon = [
     "arcolinux-cinnamon-git",
@@ -552,6 +556,9 @@ def remove_desktop(self,desktop):
             "gnome-online-miners",
             "gnome-epub-thumbnailer",
             ]
+    elif desktop == "chadwm":
+        commands = chadwm
+        remove_critical_commands =[]
     elif desktop == "cinnamon":
         commands = cinnamon
         remove_critical_commands =[]
