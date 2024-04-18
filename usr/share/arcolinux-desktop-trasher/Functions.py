@@ -127,18 +127,18 @@ def pop_box(self, combo):
         for items in os.listdir("/usr/share/wayland-sessions/"):
             coms.append(items.split(".")[0].lower())
 
-        coms.sort()
-        for i in range(len(coms)):
-            excludes = [
-                "gnome-classic",
-                "gnome-xorg",
-                "i3-with-shmlog",
-                "openbox-kde",
-                "cinnamon2d",
-                "",
-            ]
-            if not coms[i] in excludes:
-                combo.append_text(coms[i])
+    coms.sort()
+    for i in range(len(coms)):
+        excludes = [
+            "gnome-classic",
+            "gnome-xorg",
+            "i3-with-shmlog",
+            "openbox-kde",
+            "cinnamon2d",
+            "",
+        ]
+        if not coms[i] in excludes:
+            combo.append_text(coms[i])
 
 
 def pop_box_all(self, combo):
