@@ -556,11 +556,11 @@ ukui = [
 ]
 wayfire = [
     "arcolinux-wayfire-git",
-    "wayfire-git",
     "wayfire-plugins-extra-git",
     "wcm-git",
     "wf-kill-git",
     "wf-shell-git",
+    "wayfire-git",
 ]
 wmderland = [
     "arcolinux-wmderland-git",
