@@ -123,6 +123,10 @@ def pop_box(self, combo):
         for items in os.listdir("/usr/share/xsessions/"):
             coms.append(items.split(".")[0].lower())
 
+    if os.path.exists("/usr/share/wayland-sessions/"):
+        for items in os.listdir("/usr/share/wayland-sessions/"):
+            coms.append(items.split(".")[0].lower())
+
         coms.sort()
         for i in range(len(coms)):
             excludes = [
@@ -220,6 +224,7 @@ desktop = [
     "gnome",
     "herbstluftwm",
     "hypr",
+    "hyprland",
     "i3",
     "icewm",
     "jwm",
@@ -232,6 +237,7 @@ desktop = [
     "plasma",
     "qtile",
     "spectrwm",
+    "wayfire",
     "wmderland",
     "worm",
     "ukui",
@@ -375,6 +381,10 @@ hypr = [
     "arcolinux-hypr-git",
     "hypr-dev-git",
 ]
+hyprland = [
+    "arcolinux-hyprland-git",
+    "hyprland-git",
+]
 i3 = [
     "arcolinux-i3wm-git",
     "arcolinux-rofi-git",
@@ -420,6 +430,8 @@ leftwm = [
     "arcolinux-volumeicon-git",
     "leftwm-theme-git",
     "leftwm-git",
+    "leftwm-dev-git",
+    "leftwm",
     "picom",
     "rofi",
     "sxhkd",
@@ -542,6 +554,14 @@ ukui = [
     "gvfs",
     "ukui",
 ]
+wayfire = [
+    "arcolinux-wayfire-git",
+    "wayfire-git",
+    "wayfire-plugins-extra-git",
+    "wcm-git",
+    "wf-kill-git",
+    "wf-shell-git",
+]
 wmderland = [
     "arcolinux-wmderland-git",
     "wmderland-git",
@@ -647,6 +667,9 @@ def remove_desktop(self, desktop):
     elif desktop == "hypr":
         commands = hypr
         remove_critical_commands = []
+    elif desktop == "hyprland":
+        commands = hyprland
+        remove_critical_commands = []
     elif desktop == "i3":
         commands = i3
         remove_critical_commands = []
@@ -685,6 +708,9 @@ def remove_desktop(self, desktop):
         commands = spectrwm
     elif desktop == "ukui":
         commands = ukui
+        remove_critical_commands = []
+    elif desktop == "wayfire":
+        commands = wayfire
         remove_critical_commands = []
     elif desktop == "wmderland":
         commands = wmderland
